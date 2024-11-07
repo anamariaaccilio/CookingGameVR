@@ -7,13 +7,17 @@ public class GameStartMenu : MonoBehaviour
 {
     [Header("UI Pages")]
     public GameObject mainMenu;
-    public GameObject options;
-    public GameObject about;
+    public GameObject newGameMenu;
+    public GameObject scoreboard;
+    public GameObject settings;
+    public GameObject credits;
 
     [Header("Main Menu Buttons")]
+    public Button newGameButton;
     public Button startButton;
-    public Button optionButton;
-    public Button aboutButton;
+    public Button settingsButton;
+    public Button scoreboardButton;
+    public Button creditsButton;
     public Button quitButton;
 
     public List<Button> returnButtons;
@@ -25,8 +29,10 @@ public class GameStartMenu : MonoBehaviour
 
         //Hook events
         startButton.onClick.AddListener(StartGame);
-        optionButton.onClick.AddListener(EnableOption);
-        aboutButton.onClick.AddListener(EnableAbout);
+        newGameButton.onClick.AddListener(EnableNewGame);
+        scoreboardButton.onClick.AddListener(EnableScoreboard);
+        settingsButton.onClick.AddListener(EnableSettings);
+        creditsButton.onClick.AddListener(EnableCredits);
         quitButton.onClick.AddListener(QuitGame);
 
         foreach (var item in returnButtons)
@@ -49,26 +55,50 @@ public class GameStartMenu : MonoBehaviour
     public void HideAll()
     {
         mainMenu.SetActive(false);
-        options.SetActive(false);
-        about.SetActive(false);
+        newGameMenu.SetActive(false);
+        settings.SetActive(false);
+        scoreboard.SetActive(false);
+        credits.SetActive(false);
     }
 
     public void EnableMainMenu()
     {
         mainMenu.SetActive(true);
-        options.SetActive(false);
-        about.SetActive(false);
+        newGameMenu.SetActive(false);
+        settings.SetActive(false);
+        scoreboard.SetActive(false);
+        credits.SetActive(false);
     }
-    public void EnableOption()
+    public void EnableNewGame()
     {
         mainMenu.SetActive(false);
-        options.SetActive(true);
-        about.SetActive(false);
+        newGameMenu.SetActive(true);
+        settings.SetActive(false);
+        scoreboard.SetActive(false);
+        credits.SetActive(false);
     }
-    public void EnableAbout()
+    public void EnableSettings()
     {
         mainMenu.SetActive(false);
-        options.SetActive(false);
-        about.SetActive(true);
+        newGameMenu.SetActive(false);
+        settings.SetActive(true);
+        scoreboard.SetActive(false);
+        credits.SetActive(false);
+    }
+    public void EnableScoreboard()
+    {
+        mainMenu.SetActive(false);
+        newGameMenu.SetActive(false);
+        settings.SetActive(false);
+        scoreboard.SetActive(true);
+        credits.SetActive(false);
+    }
+    public void EnableCredits()
+    {
+        mainMenu.SetActive(false);
+        newGameMenu.SetActive(false);
+        settings.SetActive(false);
+        scoreboard.SetActive(false);
+        credits.SetActive(true);
     }
 }
